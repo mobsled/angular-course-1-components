@@ -5,16 +5,18 @@
 
 <div class="courses">
 
-    <!-- <my-card *ngFor="let course of courses; index as i"
-            [cardIndex]="i + 1"
-            [course]="course"
-            (courseSelected)="onCourseSelected($event)"/> -->
+  <my-card
+    *ngFor="let course of courses; let i = index;"
+    [cardIndex]="i + 1"
+    [course]="course"
+    (courseSelected)="onCourseSelected($event)">
+  </my-card>
 
-    @for (course of courses; track course.id) {
+    <!-- @for (course of courses; track course.id) {
         <my-card
             [cardIndex]="$index + 1"
             [course]="course"
             (courseSelected)="onCourseSelected($event)"/>
-    }
+    } -->
 
 </div>
