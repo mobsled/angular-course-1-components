@@ -21,22 +21,14 @@
 <div class="courses" *ngIf="courses[5] as course">
 
   <my-card [course]="course" (courseSelected)="onCourseSelected($event)">
-    
-    <div class="course-image">
-      <img width="300" alt="Angular Logo" [src]="course.iconUrl">
-      <h5>Total lessons: 5</h5>
-    </div>
+
+    <course-image [src]="course.iconUrl">
+    </course-image>
 
     <div class="course-description">
       {{ course.longDescription }}
     </div>
 
-    Edit Description: <textarea></textarea>
-
-  </my-card>
-
-  <my-card [course]="courses[3]" (courseSelected)="onCourseSelected($event)">
-    <h5>Total lessons: 10</h5>
   </my-card>
 
     <!-- @for (course of courses; track course.id) {

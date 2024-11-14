@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, Component, ContentChild, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { Course } from '../model/course';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 
@@ -9,7 +9,8 @@ import { CommonModule } from '@angular/common'; // Import CommonModule
   templateUrl: './my-card.component.html',
   styleUrl: './my-card.component.css'
 })
-export class MyCardComponent {
+export class MyCardComponent implements OnInit, AfterViewInit {
+
   @Input({
     required: true
   })
@@ -26,12 +27,20 @@ export class MyCardComponent {
   @Output('courseSelected')
   courseEmitter = new EventEmitter<Course>();
 
+  @ContentChild('container')
+  image: Object;
+
+  ngAfterViewInit(): void {
+    console.log(this.image);
+  }
+
+  ngOnInit(): void {}
+
   isImageVisible() {
     return this.course && this.course.iconUrl;
   }
 
   onCourseViewed(): void {
-    console.log("card component - button clicked...");
     this.courseEmitter.emit(this.course);
   }
 
