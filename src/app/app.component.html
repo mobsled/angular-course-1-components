@@ -4,13 +4,13 @@
 </div>
 
 <!-- Pipes -->
-<div class="demo">
+<!-- <div class="demo">
   <div>Start Date: {{ startDate | date: 'MMM/dd/yyyy' }}</div>
   <div>{{ title | titlecase }}</div>
   <div>{{ price | number: '3.3-5' }}</div>
   <div>{{ price | currency: 'GBP' }}</div>
   <div>Percentage: {{ rate | percent }}</div>
-</div>
+</div> -->
 
 <!-- {{ courses | json }} -->
 
@@ -18,13 +18,25 @@
   {{ pair.key + ': ' + pair.value }}
 </div> -->
 
-<div class="courses">
+<div class="courses" *ngIf="courses[5] as course">
 
-  <my-card
-    *ngFor="let course of courses | slice: 1:3 ; let i = index;"
-    [cardIndex]="i + 1"
-    [course]="course"
-    (courseSelected)="onCourseSelected($event)">
+  <my-card [course]="course" (courseSelected)="onCourseSelected($event)">
+    
+    <div class="course-image">
+      <img width="300" alt="Angular Logo" [src]="course.iconUrl">
+      <h5>Total lessons: 5</h5>
+    </div>
+
+    <div class="course-description">
+      {{ course.longDescription }}
+    </div>
+
+    Edit Description: <textarea></textarea>
+
+  </my-card>
+
+  <my-card [course]="courses[3]" (courseSelected)="onCourseSelected($event)">
+    <h5>Total lessons: 10</h5>
   </my-card>
 
     <!-- @for (course of courses; track course.id) {
