@@ -5,14 +5,14 @@ export const COURSES: any = [
 
     {
         id: 1,
-        description: "Angular Core Deep Dive",
+        description: "Angular core deep dive",
         longDescription: "A detailed walk-through of the most important part of Angular - the Core and Common modules",
         category: 'INTERMEDIATE',
         lessonsCount: 10
     },
     {
         id: 2,
-        description: "RxJs In Practice Course",
+        description: "RxJs in practice course",
         iconUrl: 'https://s3-us-west-1.amazonaws.com/angular-university/course-images/rxjs-in-practice-course.png',
         longDescription: "Understand the RxJs Observable pattern, learn the RxJs Operators via practical examples",
         category: 'UNKNOWN',

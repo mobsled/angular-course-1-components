@@ -3,10 +3,25 @@
          src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 </div>
 
+<!-- Pipes -->
+<div class="demo">
+  <div>Start Date: {{ startDate | date: 'MMM/dd/yyyy' }}</div>
+  <div>{{ title | titlecase }}</div>
+  <div>{{ price | number: '3.3-5' }}</div>
+  <div>{{ price | currency: 'GBP' }}</div>
+  <div>Percentage: {{ rate | percent }}</div>
+</div>
+
+<!-- {{ courses | json }} -->
+
+<!-- <div *ngFor="let pair of course | keyvalue">
+  {{ pair.key + ': ' + pair.value }}
+</div> -->
+
 <div class="courses">
 
   <my-card
-    *ngFor="let course of courses; let i = index;"
+    *ngFor="let course of courses | slice: 1:3 ; let i = index;"
     [cardIndex]="i + 1"
     [course]="course"
     (courseSelected)="onCourseSelected($event)">
